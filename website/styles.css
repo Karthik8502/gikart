@@ -1,0 +1,276 @@
+/* styles.css */
+
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: #f1f1f1;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background-color: #1f1f1f;
+  padding: 20px;
+  border-bottom: 1px solid #333;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+/* Search Bar */
+.search-bar {
+  width: 100%;
+  max-width: 500px;
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  background-color: #2a2a2a;
+  color: #f1f1f1;
+  outline: none;
+}
+
+.search-bar::placeholder {
+  color: #aaa;
+}
+
+/* Main Product Grid */
+main {
+  padding: 40px 20px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Product Card */
+.card {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 25px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px rgba(3, 169, 244, 0.3);
+}
+
+.card h2 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+}
+
+.card p {
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  color: #ccc;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #03a9f4;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #0288d1;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #1f1f1f;
+  border-top: 1px solid #333;
+  color: #aaa;
+}
+.categories {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.category-btn {
+  background-color: #333;
+  border: 1px solid #555;
+  color: #f0f0f0;
+  padding: 10px 18px;
+  margin: 0 6px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.category-btn:hover, .category-btn.active {
+  background-color: #facc15;
+  color: #000;
+}
+.no-products {
+  text-align: center;
+  padding: 80px 20px;
+  color: #ccc;
+}
+/* Header layout */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #1e1e1e;
+  color: white;
+}
+
+/* Login button styles */
+.login-btn {
+  padding: 10px 25px;
+  background-color: #ff6f61;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 4px 12px rgba(255, 111, 97, 0.3);
+}
+
+.login-btn:hover {
+  background-color: #ff3b2e;
+  transform: scale(1.05);
+}
+/* ===== BASE STYLES (for desktop by default) ===== */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fff;
+  color: #111;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px;
+  justify-content: space-between;
+}
+
+.product-card {
+  width: 30%;
+  margin: 15px;
+  padding: 20px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  background-color: #fafafa;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.02);
+}
+
+/* NAVBAR */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background-color: #111;
+  color: white;
+}
+
+nav ul {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+nav ul li {
+  cursor: pointer;
+}
+
+/* ===== MEDIA QUERIES ===== */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .product-card {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  nav {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  body {
+    font-size: 0.95rem;
+  }
+
+  .container {
+    padding: 15px;
+  }
+
+  .product-card {
+    padding: 15px;
+  }
+
+  nav {
+    padding: 10px 15px;
+  }
+
+  nav ul {
+    gap: 10px;
+  }
+
+  .hero-text {
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 10px;
+  }
+}
+@media (max-width: 600px) {
+  .category-button {
+    margin-bottom: 12px; /* adds space below each category button */
+  }
+
+  .category-button:last-child {
+    margin-bottom: 20px; /* extra space below the last button (Wallpapers) */
+  }
+}

@@ -1,0 +1,28 @@
+.product-detail {
+  padding: 40px;
+  max-width: 800px;
+  margin: auto;
+  text-align: center;
+}
+
+.detail-img {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.buy-btn {
+  padding: 12px 25px;
+  background-color: #00f7ff;
+  color: #000;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.buy-btn:hover {
+  background-color: #00c3d1;
+}
