@@ -74,7 +74,7 @@ main {
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 0 15px rgba(3, 169, 244, 0.3);
+  box-shadow: 0 0 15px rgba(66, 188, 245, 0.973);
 }
 
 .card h2 {
@@ -85,13 +85,13 @@ main {
 .card p {
   font-size: 0.95rem;
   margin-bottom: 20px;
-  color: #ccc;
+  color: #606aed;
 }
 
 .button {
   padding: 10px 20px;
   background-color: #03a9f4;
-  color: white;
+  color: rgb(0, 0, 0);
   border: none;
   border-radius: 8px;
   text-decoration: none;
@@ -166,8 +166,8 @@ footer {
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #fff;
-  color: #111;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 .container {
