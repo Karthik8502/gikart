@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DiKart Product View</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #121212;
+      color: #fff;
+    }
+
+    .product-container {
+      display: flex;
+      padding: 20px;
+      background-color: #1e1e1e;
+    }
+
+    .product-image {
+      width: 45%;
+    }
+
+    .product-image img {
+      width: 100%;
+      border-radius: 8px;
+    }
+
+    .product-info {
+      width: 50%;
+      margin-left: 30px;
+    }
+
+    .product-title {
+      font-size: 1.6em;
+      font-weight: bold;
+    }
+
+    .price {
+      font-size: 1.5em;
+      color: #00ffcc;
+      margin: 10px 0;
+    }
+
+    .buy-btn {
+      margin-top: 20px;
+      padding: 12px 24px;
+      font-size: 1em;
+      background-color: #ff9900;
+      border: none;
+      color: black;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .buy-btn:hover {
+      background-color: #ffaa33;
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.85);
+    }
+
+    .modal-content {
+      background-color: #222;
+      margin: 5% auto;
+      padding: 20px;
+      border: 1px solid #444;
+      width: 60%;
+      border-radius: 8px;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #fff;
+    }
+
+    .payment-img {
+      width: 100%;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="product-container">
+  <div class="product-image">
+    <img src="assets/lightroom-thumb.png.jpg" alt="Product Image">
+  </div>
+  <div class="product-info">
+    <div class="product-title">Lightroom Presets</div>
+    <p>Professional preset for photo editing</p>
+    <div class="price">₹10 <small style="color: #ccc; font-size: 0.8em;">(M.R.P: ₹29)</small></div>
+    <button class="buy-btn" onclick="openModal()">Buy Now</button>
+  </div>
+</div>
+
+<!-- Modal -->
+<div id="paymentModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>Select Payment Method</h2>
+  </div>
+</div>
+
+<script>
+  function openModal() {
+    document.getElementById('paymentModal').style.display = 'block';
+  }
+
+  function closeModal() {
+    document.getElementById('paymentModal').style.display = 'none';
+  }
+
+  window.onclick = function(event) {
+    const modal = document.getElementById('paymentModal');
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+</html>

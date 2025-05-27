@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Creator Panel - DiKart</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: white;
+      font-family: sans-serif;
+      padding: 20px;
+    }
+    .form-container {
+      max-width: 600px;
+      margin: auto;
+      background-color: #1e1e1e;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 20px;
+      border-radius: 6px;
+      border: none;
+      background-color: #333;
+      color: white;
+    }
+    label {
+      font-weight: bold;
+    }
+    .button {
+      background-color: #00ffcc;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      color: black;
+    }
+    .preview-box {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #292929;
+      border-radius: 10px;
+    }
+    .preview-box img {
+      max-width: 100%;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Create Product – DiKart 🛍️</h1>
+
+  <div class="form-container">
+    <label>Product Title:</label>
+    <input type="text" id="title" placeholder="Enter product title" />
+
+    <label>Product Description:</label>
+    <textarea id="desc" placeholder="Write description..."></textarea>
+
+    <label>Price (INR):</label>
+    <input type="number" id="price" placeholder="₹" />
+
+    <label>Seller Name:</label>
+    <input type="text" id="seller" placeholder="e.g., Gesto®" />
+
+    <label>Product Image:</label>
+    <input type="file" id="imageUpload" accept="image/*" />
+
+    <button class="button" onclick="previewProduct()">👁️ Preview</button>
+
+    <div class="preview-box" id="preview" style="display: none;">
+      <h2 id="pTitle"></h2>
+      <p id="pDesc"></p>
+      <p><strong>💰 ₹<span id="pPrice"></span></strong></p>
+      <p><strong>🛒 Seller:</strong> <span id="pSeller"></span></p>
+      <img id="pImage" src="#" alt="Preview Image" />
+    </div>
+  </div>
+
+  <script>
+    function previewProduct() {
+      document.getElementById("preview").style.display = "block";
+
+      document.getElementById("pTitle").innerText = document.getElementById("title").value;
+      document.getElementById("pDesc").innerText = document.getElementById("desc").value;
+      document.getElementById("pPrice").innerText = document.getElementById("price").value;
+      document.getElementById("pSeller").innerText = document.getElementById("seller").value;
+
+      const file = document.getElementById("imageUpload").files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          document.getElementById("pImage").src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      }
+    }
+  </script>
+
+</body>
+</html>

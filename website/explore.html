@@ -8,110 +8,103 @@
 </head>
 <body>
   <header class="main-header">
-  <h1>DiKart</h1>
-  <a href="login.html" class="login-btn">Login</a>
-</header>
-
-  <header>
-    <div class="container">
-      <h1>DiKart</h1>
-      <input type="text" class="search-bar" placeholder="Search digital products..."/>
-    </div>
-    <div class="categories">
-  <button class="category-btn active" data-category="all">All</button>
-  <button class="category-btn" data-category="presets">Presets</button>
-  <button class="category-btn" data-category="templates">Templates</button>
-  <button class="category-btn" data-category="wallpapers">Wallpapers</button>
-</div>
-
+    <h1>DiKart</h1>
+    <a href="login.html" class="login-btn">Login</a>
   </header>
 
-  <main>
-    <section class="product-grid">
-      <div class="card">
-        <h2>Lightroom Presets</h2>
-        <p>Professional color grading presets to enhance your photos.</p>
-        <a href="preset.html" class="button">Explore</a>
-      </div>
+  <section class="hero">
+    <div class="hero-text">
+      <h2>Discover & Sell Digital Products</h2>
+      <p>Presets, Templates, Kits and more — All in one place</p>
+      <input type="text" class="search-bar" placeholder="Search digital products...">
+    </div>
+    <div class="categories">
+      <button class="category-btn active" data-category="all">All</button>
+      <button class="category-btn" data-category="presets">Presets</button>
+      <button class="category-btn" data-category="templates">Templates</button>
+      <button class="category-btn" data-category="wallpapers">Wallpapers</button>
+      <button class="category-btn" data-category="uikits">UI Kits</button>
+    </div>
+  </section>
 
-      <div class="card">
-        <h2>Instagram Templates</h2>
-        <p>Boost your social media game with stylish designs.</p>
-        <a href="insta.html" class="button">Explore</a>
-      </div>
+  <main class="product-grid">
+    <div class="card" data-category="presets">
+      <img src="assets/preset-icon.png" alt="Presets Icon"/>
+      <h2>Lightroom Presets</h2>
+      <p>Enhance your photos with pro-level color grading</p>
+      <a href="preset.html" class="button">Explore</a>
+    </div>
 
-      <div class="card">
-        <h2>Notion Templates</h2>
-        <p>Organize your work and personal life with ease.</p>
-        <a href="notion.html" class="button">Explore</a>
-      </div>
+    <div class="card" data-category="templates">
+      <img src="assets/insta-template.png" alt="Instagram Templates"/>
+      <h2>Instagram Templates</h2>
+      <p>Boost your design with reusable post kits</p>
+      <a href="insta.html" class="button">Explore</a>
+    </div>
 
-      <div class="card">
-        <h2>Canva Kits</h2>
-        <p>Editable designs for your content creation needs.</p>
-        <a href="canva.html" class="button">Explore</a>
-      </div>
+    <div class="card" data-category="templates">
+      <img src="assets/notion-icon.png" alt="Notion Templates"/>
+      <h2>Notion Templates</h2>
+      <p>Stay organized with smart workspace layouts</p>
+      <a href="notion.html" class="button">Explore</a>
+    </div>
 
-      <div class="card">
-        <h2>Wallpapers</h2>
-        <p>Beautiful high-resolution wallpapers for every mood.</p>
-        <a href="wall.html" class="button">Explore</a>
-      </div>
+    <div class="card" data-category="templates">
+      <img src="assets/canva.png" alt="Canva Kits"/>
+      <h2>Canva Kits</h2>
+      <p>Ready-to-edit templates for content creators</p>
+      <a href="canva.html" class="button">Explore</a>
+    </div>
 
-      <div class="card">
-        <h2>UI Kits</h2>
-        <p>Modern UI packs for developers and designers.</p>
-        <a href="ui.html" class="button">Explore</a>
-      </div>
-    </section>
+    <div class="card" data-category="wallpapers">
+      <img src="assets/wallpaper.png" alt="Wallpapers"/>
+      <h2>Wallpapers</h2>
+      <p>High-res digital backdrops for any device</p>
+      <a href="wall.html" class="button">Explore</a>
+    </div>
+
+    <div class="card" data-category="uikits">
+      <img src="assets/uikit.png" alt="UI Kits"/>
+      <h2>UI Kits</h2>
+      <p>Design system assets for devs & designers</p>
+      <a href="ui.html" class="button">Explore</a>
+    </div>
   </main>
 
   <footer>
     <p>&copy; 2025 DiKart. All rights reserved.</p>
   </footer>
+
   <script>
     const categoryButtons = document.querySelectorAll(".category-btn");
+    const cards = document.querySelectorAll(".card");
+    const searchBar = document.querySelector(".search-bar");
 
-categoryButtons.forEach(btn => {
-  btn.addEventListener("click", () => {
-    categoryButtons.forEach(b => b.classList.remove("active"));
-    btn.classList.add("active");
+    categoryButtons.forEach(btn => {
+      btn.addEventListener("click", () => {
+        categoryButtons.forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
 
-    const category = btn.getAttribute("data-category");
+        const category = btn.getAttribute("data-category");
+        cards.forEach(card => {
+          const cardCategory = card.getAttribute("data-category");
+          const matchCategory = category === "all" || cardCategory === category;
+          const matchSearch = card.style.display !== "none";
+          card.style.display = matchCategory && matchSearch ? "block" : "none";
+        });
 
-    cards.forEach(card => {
-      const cardCategory = card.getAttribute("data-category");
-
-      const matchCategory = category === "all" || cardCategory === category;
-      const matchSearch = card.style.display !== "none";
-
-      card.style.display = matchCategory && matchSearch ? "block" : "none";
+        searchBar.dispatchEvent(new Event('input'));
+      });
     });
 
-    // Trigger search again to sync
-    searchBar.dispatchEvent(new Event('input'));
-  });
-});
-
-  const searchBar = document.querySelector(".search-bar");
-  const cards = document.querySelectorAll(".card");
-
-  searchBar.addEventListener("input", () => {
-    const query = searchBar.value.toLowerCase();
-
-    cards.forEach(card => {
-      const title = card.querySelector("h2").textContent.toLowerCase();
-      const description = card.querySelector("p").textContent.toLowerCase();
-
-      if (title.includes(query) || description.includes(query)) {
-        card.style.display = "block";
-      } else {
-        card.style.display = "none";
-      }
+    searchBar.addEventListener("input", () => {
+      const query = searchBar.value.toLowerCase();
+      cards.forEach(card => {
+        const title = card.querySelector("h2").textContent.toLowerCase();
+        const description = card.querySelector("p").textContent.toLowerCase();
+        card.style.display = title.includes(query) || description.includes(query) ? "block" : "none";
+      });
     });
-  });
-</script>
-
-
+  </script>
 </body>
 </html>

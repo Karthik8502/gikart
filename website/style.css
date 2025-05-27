@@ -41,3 +41,22 @@ button {
 button:hover {
     background-color: #1565c0;
 }
+.sell-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: #00ffcc;
+  color: #000;
+  padding: 10px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  z-index: 9999;
+  box-shadow: 0 0 10px rgba(0, 255, 204, 0.7);
+  transition: 0.2s;
+}
+
+.sell-button:hover {
+  background-color: #00e6b3;
+  transform: scale(1.05);
+}
