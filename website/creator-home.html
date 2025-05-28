@@ -7,6 +7,11 @@
   <link rel="stylesheet" href="creator-home.css">
 </head>
 <body>
+  <header class="main-header">
+  <button id="switchToHomeBtn" class="top-right-button">🔁 Switch to Home</button>
+
+</header>
+
   <div class="hub-container">
     <h1> Welcome to Creator Hub</h1>
     <p class="intro">Launch and manage your DiKart product cards. New updates & tools coming soon!</p>
@@ -37,6 +42,20 @@
     }
     
   </script>
+  <script>
+  document.getElementById("switchToHomeBtn").addEventListener("click", () => {
+    // Optional: Add loading splash or animation
+    window.location.href = "explore.html"; // or home.html if you use a different name
+  });
   
+</script>
+
+<script>
+  document.getElementById("switchToHomeBtn").addEventListener("click", () => {
+    window.location.href = "explore.html"; // or your home page URL
+  });
+</script>
+
+
 </body>
 </html>
