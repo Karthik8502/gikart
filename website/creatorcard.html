@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add New Product | DiKart</title>
+  <link rel="stylesheet" href="creatorcard.css" />
+</head>
+<body>
+  <div class="creator-container">
+    <h1 class="creator-title">🚀 Create a New Product Card</h1>
+    
+    <form class="creator-form">
+      <label for="thumbnail">🖼️ Product Thumbnail</label>
+      <input type="file" id="thumbnail" accept="image/*" />
+
+      <label for="title">📝 Title</label>
+      <input type="text" id="title" placeholder="Enter product title" required />
+
+     <label for="category">📁 Category</label>
+<input type="text" id="category" placeholder="e.g. Lightroom Presets" required />
+
+      </select>
+
+      <label for="price">💰 Price (INR)</label>
+      <input type="number" id="price" placeholder="e.g. 10" required />
+
+      <label for="description">📃 Description</label>
+      <textarea id="description" placeholder="Write about your product..." required></textarea>
+
+      <button type="submit" class="submit-btn">✨ Create Product Card</button>
+    </form>
+  </div>
+
+  <script>
+    document.querySelector(".creator-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("✅ Product Card Created Successfully!");
+      // Here you can connect to Firebase to actually upload the product
+    });
+  </script>
+</body>
+</html>
