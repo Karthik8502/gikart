@@ -16,8 +16,27 @@
       <input type="number" placeholder="Price (INR)" required />
       <input type="text" placeholder="Company / Brand" required />
       <input type="file" accept="image/*" />
+    <div class="tool-selector">
+  <label for="toolOptions">🛠️ Select Card:</label>
+  <select id="toolOptions">
+    <option value="lightroom">Lightroom Preset</option>
+    <option value="canva">Canva Kit</option>
+    <option value="video">Video Overlay</option>
+    <option value="fonts">Font Pack</option>
+    <option value="template">Template</option>
+  </select>
+</div>
+
       <button type="submit">Publish Product</button>
     </form>
   </div>
+  <script>
+  document.getElementById("toolOptions").addEventListener("change", function() {
+    const tool = this.value;
+    alert(`You selected: ${tool}`);
+    // You can redirect, show different UI, or load components
+  });
+</script>
+
 </body>
 </html>

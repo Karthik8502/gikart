@@ -121,7 +121,30 @@
       }, 2000); // 3 seconds splash screen before redirect
     });
   </script>
- 
+ <script type="module">
+  import { db } from "./firebase.js";
+  import { collection, getDocs } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+
+  const container = document.getElementById("productContainer");
+
+  async function loadProducts() {
+    const snapshot = await getDocs(collection(db, "products"));
+    snapshot.forEach(doc => {
+      const p = doc.data();
+      container.innerHTML += `
+        <div class="card">
+          <h3>${p.title}</h3>
+          <p>${p.description}</p>
+          <strong>₹${p.price}</strong><br>
+          <a href="${p.fileURL}" target="_blank">📦 View Product</a>
+        </div>
+      `;
+    });
+  }
+
+  loadProducts();
+</script>
+
 
 </body>
 </html>
