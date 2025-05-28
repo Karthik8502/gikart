@@ -9,7 +9,7 @@
 <body>
   <header class="main-header">
     <h1>DiKart</h1>
-    <a href="login.html" class="login-btn">Login</a>
+    <button id="creatorBtn">Switch to Creator</button>
   </header>
 
   <section class="hero">
@@ -69,6 +69,12 @@
       <p>Design system assets for devs & designers</p>
       <a href="ui.html" class="button">Explore</a>
     </div>
+    <!-- Hidden splash screen -->
+  <div id="splashScreen" style="display:none;">
+    <div class="loader-text">⚡ Switching to Creator Mode...</div>
+    <div class="spinner"></div>
+  </div>
+
   </main>
 
   <footer>
@@ -104,6 +110,15 @@
         const description = card.querySelector("p").textContent.toLowerCase();
         card.style.display = title.includes(query) || description.includes(query) ? "block" : "none";
       });
+    });
+  </script>
+  <script>
+    document.getElementById('creatorBtn').addEventListener('click', () => {
+      document.getElementById('splashScreen').style.display = 'flex';
+
+      setTimeout(() => {
+        window.location.href = 'creator.html';
+      }, 3000); // 3 seconds splash screen before redirect
     });
   </script>
 </body>

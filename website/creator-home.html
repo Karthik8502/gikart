@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Creator Hub | DiKart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="creator-home.css">
+</head>
+<body>
+  <div class="hub-container">
+    <h1> Welcome to Creator Hub</h1>
+    <p class="intro">Launch and manage your DiKart product cards. New updates & tools coming soon!</p>
+
+    <div class="upload-core">
+      <button id="uploadTrigger">📦 Upload Product</button>
+      <div class="upload-popup" id="uploadPopup">
+        <button class="upload-btn" onclick="triggerAnimation(this, 'creator.html')">➕ Add New Card</button>
+        <button class="upload-btn" onclick="triggerAnimation(this, 'creator.html')">🔁 Add product to Existing Card</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const trigger = document.getElementById('uploadTrigger');
+    const popup = document.getElementById('uploadPopup');
+
+    trigger.addEventListener('click', () => {
+      popup.classList.toggle('show');
+    });
+
+    function triggerAnimation(btn, link) {
+      btn.classList.add('shake');
+      setTimeout(() => {
+        btn.classList.remove('shake');
+        window.location.href = link;
+      }, 600);
+    }
+  </script>
+</body>
+</html>

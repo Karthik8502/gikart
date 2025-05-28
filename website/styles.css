@@ -721,3 +721,63 @@ body {
 .signup-link a:hover {
   text-decoration: underline;
 }
+#splashScreen {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: radial-gradient(ellipse at center, #000 0%, #111 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 9999;
+  color: #0ff;
+  font-family: 'Orbitron', sans-serif;
+  animation: pulseBG 2s infinite alternate;
+}
+
+@keyframes pulseBG {
+  from { background-color: #000; }
+  to { background-color: #111; }
+}
+
+.loader-text {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  text-shadow: 0 0 10px #0ff;
+}
+
+.spinner {
+  width: 80px;
+  height: 80px;
+  border: 10px solid #0ff;
+  border-top: 10px solid transparent;
+  border-radius: 50%;
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg);}
+  100% { transform: rotate(360deg);}
+}
+#creatorBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: linear-gradient(145deg, #00ffd5, #0e76ec);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-family: 'Orbitron', sans-serif;
+  border-radius: 12px;
+  box-shadow: 0 0 10px #00ffd5;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#creatorBtn:hover {
+  background: linear-gradient(145deg, #0e76ec, #00ffd5);
+  box-shadow: 0 0 20px #00f0ff, 0 0 30px #0e76ec;
+  transform: scale(1.05);
+}
